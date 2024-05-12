@@ -150,6 +150,81 @@ public class App extends Application {
 		stage.show();
 	}
 
+	/*
+	 * ESTILOS
+	 * 
+	 * [TAMAÑO DE TEXTO]
+	 * 
+	 * setStyle("-fx-font-size: 16px;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [COLOR DE TEXTO]
+	 * 
+	 * setStyle("-fx-text-fill: blue;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [COLOR DE FONDO]
+	 * 
+	 * setStyle("-fx-background-color: #4CAF50;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [COLOR DE FONDO CON GRADIENTE]
+	 * 
+	 * setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E8B57);"
+	 * ); );
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [COLOR DEL BORDE]
+	 * 
+	 * setStyle("-fx-border-color: #000000;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [GROSOR DEL BORDE]
+	 * 
+	 * setStyle("-fx-border-width: 2px;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [RADIO DEL BORDE]
+	 * 
+	 * setStyle("-fx-border-radius: 5px;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [ESTILO DE LETRA]
+	 * 
+	 * setStyle("-fx-font-style: italic;");
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [ANCHO DE LETRA]
+	 * 
+	 * setStyle("-fx-font-weight: bold;");
+	 * 
+	 * setStyle("-fx-font-weight: light;");
+	 * 
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [PADDING]
+	 * 
+	 * setStyle("-fx-padding: 10px;");
+	 * 
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * [OPACIDAD]
+	 * 
+	 * setStyle("-fx-opacity: 0.7;");
+	 * 
+	 * ----------------------------------------------------------------------------
+	 * 
+	 * 
+	 * [HOVER]
+	 * 
+	 * button.setOnMouseEntered(e ->
+	 * button.setStyle("-fx-background-color: #2E8B57; -fx-text-fill: white;"));
+	 * 
+	 * button.setOnMouseExited(e ->
+	 * button.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;"));
+	 * 
+	 */
+
 	public static void main(String[] args) {
 		launch();
 	}
