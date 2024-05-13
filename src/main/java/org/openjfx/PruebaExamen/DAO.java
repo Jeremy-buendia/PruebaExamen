@@ -105,4 +105,47 @@ public class DAO {
 			return null;
 		}
 	}
+
+	public static ArrayList<KoalaDO> cargarLacayos(int idAvestruz, Connection con) {
+		try {
+			// Creamos un ArrayList de Koalas
+			ArrayList<KoalaDO> koalasAsociadosAvestruz = new ArrayList<>();
+			// Query para cargar los koalas asociados a un Avestruz
+			String query = "SELECT * FROM koala WHERE Avestruz_idAvestruz = ?";
+
+			// Preparamos la query
+			PreparedStatement pstmt = con.prepareStatement(query);
+
+			pstmt.setInt(1, idAvestruz);
+
+			// Ejecutamos la query
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// Creamos un nuevo koala y le agregamos los datos
+				KoalaDO koala = new KoalaDO();
+				koala.setIdKoala(rs.getInt("idKoala"));
+				koala.setNombre(rs.getString("nombre"));
+				koala.setNickguerra(rs.getString("nickguerra"));
+				koala.setEdad(rs.getInt("edad"));
+				koala.setColor(rs.getString("color"));
+				koala.setFuerza(rs.getInt("fuerza"));
+				koala.setInteligencia(rs.getInt("inteligencia"));
+				koala.setHorasSueno(rs.getInt("horasSueno"));
+				koala.setTiempoBerserk(rs.getInt("tiempoBerserk"));
+				koala.setCarritoGolf_idCarritoGolf(rs.getInt("CarritoGolf_idCarritoGolf"));
+				koala.setAvestruz_idAvestruz(rs.getInt("Avestruz_idAvestruz"));
+				// Lo agregamos al ArrayList
+				koalasAsociadosAvestruz.add(koala);
+			}
+
+			// Devolvemos el arrayList
+			return koalasAsociadosAvestruz;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// si hay error devolvemos null
+			return null;
+		}
+	}
 }
