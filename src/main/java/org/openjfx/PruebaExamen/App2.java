@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,7 +25,15 @@ public class App2 extends Application {
 		Connection con = UtilsBD.conectarBD();
 		VBox pane = new VBox();
 
-		ChoiceBox chbAvestruces = new ChoiceBox();
+		RadioButton radHombre = new RadioButton("Hombre");
+		RadioButton radMujer = new RadioButton("Mujer");
+		ToggleGroup tglSexo = new ToggleGroup();
+		radHombre.setToggleGroup(tglSexo);
+		radMujer.setToggleGroup(tglSexo);
+		radHombre.setSelected(true);
+		tglSexo.getSelectedToggle();
+
+		ChoiceBox<String> chbAvestruces = new ChoiceBox<>();
 		Button btnBuscarLacayos = new Button("Buscar Lacayos");
 
 		ArrayList<AvestruzDO> listaAvestruces = DAO.getAvestruz(con);
@@ -42,6 +52,7 @@ public class App2 extends Application {
 		btnBuscarLacayos.setOnAction(e -> {
 			panelKoalas.getChildren().clear();
 			ArrayList<KoalaDO> listaKoalas = DAO.getKoala(con);
+			System.out.println(chbAvestruces.getValue());
 			// chbAvestruces.getSelectionModel().selectedItemProperty();
 			if (chbAvestruces.getSelectionModel().getSelectedIndex() != -1) {
 				listaKoalas = DAO.cargarLacayos(
@@ -51,9 +62,19 @@ public class App2 extends Application {
 					panelKoalas.getChildren().add(nombre);
 				}
 			}
+			RadioButton radio = (RadioButton) tglSexo.getSelectedToggle();
+			System.out.println(radio.getText());
+
 		});
 
-		pane.getChildren().addAll(chbAvestruces, btnBuscarLacayos, panelKoalas);
+//		toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+//            if (newValue != null) {
+//                RadioButton selectedRadioButton = (RadioButton) newValue;
+//                System.out.println("Seleccionado: " + selectedRadioButton.getText());
+//            }
+//        });
+
+		pane.getChildren().addAll(chbAvestruces, btnBuscarLacayos, radHombre, radMujer, panelKoalas);
 
 		Scene scene = new Scene(pane, 600, 400);
 		stage.setScene(scene);
